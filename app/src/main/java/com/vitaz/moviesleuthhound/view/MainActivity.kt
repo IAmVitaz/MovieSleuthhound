@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.vitaz.moviesleuthhound.databinding.ActivityMainBinding
@@ -29,6 +30,22 @@ class MainActivity : AppCompatActivity() {
 
         loadingHelper = FrescoLoadingHelper(applicationContext)
 
+        observeViewModel()
+        bindButtons()
+        showSearchDialog()
+    }
+
+    private fun bindButtons() {
+        binding.showDialogBtn.setOnClickListener {
+            showSearchDialog()
+        }
+
+        binding.buttonDoingNothing.setOnClickListener {
+            Toast.makeText(this, "This is a button doing nothing", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun observeViewModel() {
         lifecycleScope.launchWhenStarted {
             viewModel.conversion.collect { value: MovieViewModel.State ->
                 when(value){
@@ -65,12 +82,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    private fun showSearchDialog() {
         SearchDialog.showDialog(supportFragmentManager, viewModel)
-
-        binding.showDialogBtn.setOnClickListener {
-            SearchDialog.showDialog(supportFragmentManager, viewModel)
-        }
     }
 
     private fun bindNewMovie (movie: Movie) {
