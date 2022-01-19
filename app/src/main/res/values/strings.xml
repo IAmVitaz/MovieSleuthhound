@@ -4,5 +4,8 @@
     <string name="movie_year">Movie Year</string>
     <string name="search">Search</string>
     <string name="enter_movie_name">Please enter movie name.</string>
-
+    <string name="title">Title:</string>
+    <string name="release_date">Release date:</string>
+    <string name="genre">Genre:</string>
+    <string name="plot">Plot:</string>
 </resources>

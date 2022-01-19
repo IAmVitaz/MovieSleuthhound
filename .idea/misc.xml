@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/bg_login_text_input.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_check_transperent.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.1641337386018237" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/search_dialog.xml" value="0.2740628166160081" />
       </map>

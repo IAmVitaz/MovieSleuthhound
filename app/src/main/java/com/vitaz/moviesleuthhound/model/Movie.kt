@@ -7,5 +7,7 @@ data class Movie(
     @SerializedName("Released") val released: String?,
     @SerializedName("Poster") val poster: String?,
     @SerializedName("Response") val response: Boolean,
+    @SerializedName("Genre") val genre: String?,
+    @SerializedName("Plot") val plot: String?,
     @SerializedName("Error") val error: String?
-)
+    )

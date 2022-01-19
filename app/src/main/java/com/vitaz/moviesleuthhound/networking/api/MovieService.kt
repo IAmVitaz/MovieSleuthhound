@@ -8,8 +8,8 @@ import retrofit2.http.Query
 interface MovieService {
     @GET("/")
     suspend fun getMovies(
-//        @Query("apikey") apiKey: String = "bee99c7",
         @Query("t") movieName: String,
-        @Query("y") movieYear: String
-    ): Response<Movie>
+        @Query("y") movieYear: String,
+        @Query("plot") plot: String = "full"
+        ): Response<Movie>
 }

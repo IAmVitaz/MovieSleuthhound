@@ -89,6 +89,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
+    // Images
+    implementation 'com.facebook.fresco:fresco:2.3.0'
+
+
 }
 
 static def getApiKey() {
