@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MovieSleuthhound</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="movie_year">Movie Year</string>
+    <string name="search">Search</string>
+    <string name="enter_movie_name">Please enter movie name.</string>
+
 </resources>

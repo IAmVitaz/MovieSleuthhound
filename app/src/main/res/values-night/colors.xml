@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appMainBackground">#1C1C1C</color>
+
+    <color name="mainText">#FFFFFF</color>
+    <color name="iconMain">#FFFFFF</color>
+    <color name="accent">#195113</color>
+
+    <color name="fillIn">#1F2838</color>
+    <color name="textInputBorder">#000000</color>
+
+</resources>

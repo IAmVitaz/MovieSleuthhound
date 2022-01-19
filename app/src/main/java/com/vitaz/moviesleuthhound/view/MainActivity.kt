@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.vitaz.moviesleuthhound.R
 import com.vitaz.moviesleuthhound.databinding.ActivityMainBinding
 import com.vitaz.moviesleuthhound.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        viewModel.getMovie()
-
         lifecycleScope.launchWhenStarted {
             viewModel.conversion.collect { value: MovieViewModel.State ->
                 when(value){
@@ -39,9 +36,15 @@ class MainActivity : AppCompatActivity() {
                     is MovieViewModel.State.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
                     }
-                    else -> Unit
+                    is MovieViewModel.State.Empty -> {
+                        binding.progressBar.visibility = View.GONE
+                    }
                 }
             }
+        }
+
+        binding.showDialogBtn.setOnClickListener {
+            SearchDialog.showDialog(supportFragmentManager, viewModel)
         }
 
     }

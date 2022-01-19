@@ -27,10 +27,14 @@ class MovieViewModel @Inject constructor(
     private val _conversion = MutableStateFlow<State>(State.Empty)
     val conversion: StateFlow<State> = _conversion
 
+    val movieName = MutableStateFlow<String>("")
+    val movieYear = MutableStateFlow<String>("")
+
     fun getMovie(){
         viewModelScope.launch(Dispatchers.IO) {
             _conversion.value = State.Loading
-            when(val movieResponse = repository.getMovie("star", "2021")) {
+
+            when(val movieResponse = repository.getMovie(movieName.value, movieYear.value)) {
                 is Resource.Error -> _conversion.value = State.Failure(movieResponse.message ?: "Unexpected Error")
                 is Resource.Success -> {
                     if (movieResponse.data != null) {
@@ -42,4 +46,13 @@ class MovieViewModel @Inject constructor(
             }
         }
     }
+
+    fun setNewMovieName(text: String) {
+        movieName.value = text
+    }
+
+    fun setNewMovieYear(text: String) {
+        movieYear.value = text
+    }
+
 }

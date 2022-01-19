@@ -28,5 +28,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/showDialogBtn"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_up"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/iconMain"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_up_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
