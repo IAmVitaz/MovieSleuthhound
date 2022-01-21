@@ -15,28 +15,32 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vitaz.moviesleuthhound.R
 import com.vitaz.moviesleuthhound.databinding.SearchDialogBinding
 import com.vitaz.moviesleuthhound.viewmodel.MovieViewModel
+import com.vitaz.moviesleuthhound.viewmodel.obtainParentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchDialog(
-    private val viewModel: MovieViewModel
 ): BottomSheetDialogFragment() {
 
     private lateinit var searchDialogBinding: SearchDialogBinding
+    private val viewModel: MovieViewModel by lazy {
+        obtainParentViewModel(requireActivity(), MovieViewModel::class.java, defaultViewModelProviderFactory)
+    }
 
     companion object {
         fun showDialog(
             parentFragmentManager: FragmentManager,
-            viewModel: MovieViewModel
         ) {
             val fragmentA: Fragment? = parentFragmentManager.findFragmentByTag("SearchDialog")
             if (fragmentA == null) {
-                val bottomDialogFragment = newInstance(viewModel)
+                val bottomDialogFragment = newInstance()
                 parentFragmentManager.beginTransaction()
                 bottomDialogFragment.show(parentFragmentManager, "SearchDialog")
             }
         }
 
-        private fun newInstance(viewModel: MovieViewModel): SearchDialog {
-            return SearchDialog(viewModel)
+        private fun newInstance(): SearchDialog {
+            return SearchDialog()
         }
     }
 

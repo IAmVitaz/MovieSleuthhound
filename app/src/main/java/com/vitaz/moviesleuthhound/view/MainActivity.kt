@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSearchDialog() {
-        SearchDialog.showDialog(supportFragmentManager, viewModel)
+        SearchDialog.showDialog(supportFragmentManager)
     }
 
     private fun bindNewMovie (movie: Movie) {
